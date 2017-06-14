@@ -10,8 +10,8 @@ var arrayTasks = {
 	},
 
 	square: function (arr) {
-		return arr.map(function ( element ) {
-		   return Math.pow(element, 2);
+		return arr.map(function ( item ) {
+		   return Math.pow(item, 2);
 		 });
 	},
 
@@ -24,26 +24,34 @@ var arrayTasks = {
 	},
 
 	findDuplicates: function (arr) {
-		
 		 var duplicateArray = [];
 
-     arr.forEach(function(element, index) {
-
-       // Find out whether there is a duplicate in arr
-       if (arr.indexOf(element, index + 1) > -1) {
-     	  
-          // Find out whether the element is already in duplicateArray 
-          if (duplicateArray.indexOf(element) === -1) {
-            duplicateArray.push(element);
+     arr.forEach(function(item, index) {
+        // Find out whether there is a duplicate in arr
+        if (arr.indexOf(item, index + 1) > -1) {
+           // Find out whether the element is already 
+           // in duplicateArray and add if it isn't
+          if (duplicateArray.indexOf(item) === -1) {
+            duplicateArray.push(item);
           }
-       }
-    });   
+        }
+      });   
     return duplicateArray;
 	},
 
-	// removeAndClone: function (arr, valueToRemove) {
-		
-	// },
+	removeAndClone: function (arr, valueToRemove) {
+     var valueRemovedArray = [];
+      
+     arr.forEach(function(valueToRemove) {
+        // Find out whether there is a valueToRemove in arr
+        if (arr.indexOf(valueToRemove) === -1) {
+        	 // add to new array if it is a value other than
+        	 // value found
+           valueRemovedArray.push(valueToRemove);
+        }
+     });   
+     return valueRemovedArray;
+	},
 
 	// findIndexesOf: function (arr, itemToFind) {
 		
